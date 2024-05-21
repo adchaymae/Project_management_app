@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css">
+    <style>
+        /* Ajoutez ces styles CSS pour personnaliser les boutons */
+        .btn-custom {
+            background-color: #365FB3FF;
+            border-color: #365FB3FF;
+            color: #FFFFFF;
+        }
+        /* Pour centrer le formulaire */
+        .center-form {
+            margin: auto;
+            width: 50%;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            text-align: center; /* Centrer le contenu du conteneur */
+            margin-top: 50px; /* Ajout d'un espace au-dessus du formulaire */
+        }
+        h2 {
+            color: #365FB3FF; /* Changer la couleur du titre */
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+</head>
+<body>
+<div class="container">
+    <div class="message" th:if="${message != null}">
+        [[${message}]]
+    </div>
+    <h2>Registration Form</h2>
+    <!-- Ajoutez la classe "center-form" à votre formulaire -->
+    <form class="center-form"
+          th:action="@{'http://localhost:8085/registration'}"
+          method="post"
+          role="form"
+          th:object="${user}"
+    >
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="fullname">Fullname:</label>
+                <input th:field="*{fullname}" type="text" id="fullname" name="fullname" class="form-control" placeholder="Enter your fullname" required>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="email">Email:</label>
+                <input th:field="*{email}" type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input th:field="*{password}" type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-custom mr-2">Register</button> <!-- Ajoutez la classe "btn-custom" pour personnaliser le bouton -->
+            <a href="/login" class="btn btn-custom">Login</a> <!-- Utilisez également la classe "btn-custom" pour le bouton "Login" -->
+        </div>
+    </form>
+</div>
+</body>
+</html>

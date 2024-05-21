@@ -1,0 +1,35 @@
+.site-header {
+    background-color: rgb(54, 95, 179);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+}
+body {
+    background-image: url('../1.png');
+    background-size: cover; /* Adjust the image size to cover the entire background */
+    background-attachment: fixed; /* Keeps the background fixed when scrolling */
+    background-repeat: no-repeat; /* Ensures the image does not repeat */
+    background-position: center center; /* Centers the image */
+}
+.site-header {
+    background-color: rgb(54, 95, 179);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.site-header a {
+    color: white;
+    transition: ease-in-out color .15s;
+}
+.site-header a:hover {
+    color: pink;
+    text-decoration: none;
+}
+.custom-btn-color {
+    background-color: #365FB3FF;
+    border-color: #365FB3FF;
+    color: #FFFFFF; /* Pour définir la couleur du texte */
+}
+.custom-text-color {
+    color: #365FB3FF;
+}

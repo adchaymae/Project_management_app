@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css">
+    <style>
+        /* Ajout de styles personnalisés */
+        .container {
+            text-align: center; /* Centrer le contenu du conteneur */
+            margin-top: 50px; /* Ajout d'un espace au-dessus du formulaire */
+        }
+
+        h2 {
+            color: #365FB3FF; /* Changer la couleur du titre */
+        }
+
+        .btn-custom {
+            background-color: #365FB3FF; /* Changer la couleur du bouton */
+            border-color: #365FB3FF; /* Changer la couleur de la bordure du bouton */
+            color: white; /* Couleur du texte */
+        }
+
+        .btn-custom:hover {
+            background-color: #284585; /* Changer la couleur du bouton au survol */
+            border-color: #284585; /* Changer la couleur de la bordure du bouton au survol */
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<div class="container">
+    <div class="message" th:if="${param.error}">
+        Invalid Username or Password
+    </div>
+    <div class="message" th:if="${param.logout}">
+        Logout Successfully
+    </div>
+
+    <h2>Admin and User Login Page</h2>
+    <form
+            th:action="@{'http://localhost:8085/login'}"
+            method="post"
+    >
+        <div class="form-group">
+            <label for="username">Email:</label>
+            <input type="email" id="username" name="username" class="form-control" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="login" class="btn btn-custom d-inline">
+            <a class="btn btn-custom d-inline" href="/registration">registration</a>
+        </div>
+    </form>
+
+</div>
+</body>
+</html>
